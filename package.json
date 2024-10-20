@@ -1,0 +1,15 @@
+{
+    "name": "comic_crawler",
+    "version": "1.0.0",
+    "description": "web crawler",
+    "main": "main.js",
+    "type": "module",
+    "scripts": {
+        "start": "node main.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "puppeteer": "^23.5.3"
+    }
+}
