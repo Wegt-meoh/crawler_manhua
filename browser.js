@@ -1,3 +1,6 @@
+// This javascript file is used to inject into the browser
+
+
 /**
         * 
         * @param {string} url 

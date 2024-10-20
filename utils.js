@@ -1,3 +1,5 @@
+// Some util functions for development
+
 /**
         * 
         * @param {string} url 

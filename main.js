@@ -31,6 +31,7 @@ if (isAscending) {
 // test
 anchors = anchors.slice(201, 206)
 
+// main work
 for (let i = 0; i < anchors.length; i++) {
     await page.goto(anchors[i].href, { referer: target, waitUntil: 'networkidle0' })
     await page.addScriptTag({ path: path.resolve('browser.js') })
@@ -82,4 +83,5 @@ for (let i = 0; i < anchors.length; i++) {
     await sleep(getRandomIntInRange(5, 10) * 1000)
 }
 
+//finish
 await browser.close();
