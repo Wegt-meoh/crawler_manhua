@@ -59,3 +59,8 @@ export function sleep(ms) {
 export function getRandomIntInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export const dataType = {
+    'NUMBER_ARRAY': 0,
+    'BASE64_STRING': 1
+}
