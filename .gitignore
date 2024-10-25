@@ -132,4 +132,4 @@ dist
 .pnp.*
 
 # default output dir
-output
+output*

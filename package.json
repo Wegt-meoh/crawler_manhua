@@ -7,7 +7,7 @@
     "scripts": {
         "start": "node main.js"
     },
-    "author": "",
+    "author": "Wegt-meoh",
     "license": "ISC",
     "dependencies": {
         "puppeteer": "^23.5.3"

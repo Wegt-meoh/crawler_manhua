@@ -6,7 +6,7 @@
         * @param {RequestInit} options 
         * @param {number} timeout retry interval in milliseconds, default: 3000ms
         * @param {number} retries A positive number, 0 means try infinite times, default: 3
-        * @returns {Promise<any>}
+        * @returns {Promise<Response>}
         */
 export async function fetchWithTimeout(url, options = {}, timeout = 3000, retries = 3) {
     if (retries < 0) {
@@ -25,11 +25,11 @@ export async function fetchWithTimeout(url, options = {}, timeout = 3000, retrie
         } catch (error) {
             clearTimeout(timeoutId)
             if (error.name === 'AbortError') {
-                console.error('Fetch request time out')
+                console.error('Fetch timeout with abort')
             } else {
-                console.error('Fetch failed:', error)
+                console.error('Fetch failed due to network')
             }
-            throw new Error(error)
+            throw new Error('Fetch failed', { cause: error })
         }
     }
 
@@ -44,8 +44,7 @@ export async function fetchWithTimeout(url, options = {}, timeout = 3000, retrie
             return response
         } catch (error) {
             if (attempt + 1 === retries) {
-                console.error('Max retries reached. Throwing error')
-                throw new Error(error)
+                throw Error('Max retries reached. Throwing error:', { cause: error })
             }
 
             console.log(`attempt ${attempt} failed, retrying...`)
