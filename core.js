@@ -11,7 +11,7 @@ import { Page } from "puppeteer";
  * @param {Page} page 
  */
 export default async function work(target, outputDir, anchors, page) {
-    const resume = 522;
+    const resume = 0;
 
     outerloop: for (let i = resume; i < anchors.length; i++) {
         try {
@@ -32,7 +32,7 @@ export default async function work(target, outputDir, anchors, page) {
             const imageDataList = await getImagesData(page)
 
             // Save images data as local files
-            await saveImagesLocally(imageDataList, saveDirPath, target)
+            await saveImagesLocally(imageDataList, saveDirPath)
 
             await sleep(getRandomIntInRange(5, 10) * 1000)
         } catch (error) {
